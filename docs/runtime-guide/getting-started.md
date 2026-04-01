@@ -19,6 +19,8 @@ The runtime now supports two execution modes:
 - `--live` 模式：通过环境变量调用 Anthropic 或 OpenAI-compatible API
 
 建议同时为不同 provider 设独立模型变量，例如 `ANTHROPIC_MODEL` 和 `OPENAI_MODEL`，不要强行共用同一个模型名。
+如果 OpenAI-compatible 服务走的是 Responses API，可以设置 `OPENAI_WIRE_API=responses`。
+像 `https://nimabo.cn` 这样的根域名地址，runtime 会自动补成对应的 OpenAI 风格 API 路径。
 
 当前凭据查找顺序是：
 
