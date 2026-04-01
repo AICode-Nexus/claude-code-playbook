@@ -19,3 +19,11 @@ The runtime now supports two execution modes:
 - `--live` 模式：通过环境变量调用 Anthropic 或 OpenAI-compatible API
 
 建议同时为不同 provider 设独立模型变量，例如 `ANTHROPIC_MODEL` 和 `OPENAI_MODEL`，不要强行共用同一个模型名。
+
+当前凭据查找顺序是：
+
+1. shell 环境变量
+2. 项目目录下的 `.env`
+3. `~/.codex/auth.json` 里的 `OPENAI_API_KEY`
+
+如果机器本身依赖本地代理访问外网，runtime 也会复用 `https_proxy`、`http_proxy` 或 `all_proxy`。
